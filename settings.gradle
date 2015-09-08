@@ -1,1 +1,1 @@
-include ':app', ':citationprovider'
+include ':app', ':citationprovider', ':activitycitation'

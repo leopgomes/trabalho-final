@@ -5,55 +5,53 @@ import java.util.List;
 import java.util.Random;
 
 public class CitationProvider {
-    private static CitationProvider citation;
-    ;
 
 
-    private final List<Citation> listCitation = new ArrayList<>();
+    ArrayList<String> listAuthor = new ArrayList();
+    ArrayList<String> listCitation = new ArrayList();
 
-
-    public void addCitation(String author, String citation) {
-        this.listCitation.add(new Citation(author, citation));
+    public void populaListas (){
+        listAuthor.add("Rene Descartes");
+        listCitation.add("Não existem métodos fáceis para resolver problemas difíceis.");
+        listAuthor.add("Gabriel o Pensador");
+        listCitation.add("Aquilo que o mundo pede não é aquilo que o mundo me dá.");
+        listAuthor.add("Santo Agostinho");
+        listCitation.add("Deus, que te criou sem ti, não te salvará sem ti.");
+        listAuthor.add("JEAN-PAUL SARTRE");
+        listCitation.add("O importante não é aquilo que fazem de nós, mas o que nós mesmos fazemos do que os outros fizeram de nós.");
+        listAuthor.add("Kurt Cobain");
+        listCitation.add("Prefiro ser odiado por quem sou do que ser amado por quem não sou.");
+        listAuthor.add("Rui Barbosa");
+        listCitation.add("Outrora se amilhavam asnos, porcos e galinhas. Hoje em dia há galinheiros, pocilgas e estrebarias oficiais, onde se amilham escritores.");
+        listAuthor.add("Cora Carolina");
+        listCitation.add("“Criança periférica, rejeitada. Teu mundo é o submundo.");
+        listAuthor.add("Leonardo da Vinci");
+        listCitation.add("Não desprezes a pintura, pois estarás a desprezar a contemplação apurada e filosófica do universo.");
+        listAuthor.add("Joao Paulo II");
+        listCitation.add("A Igreja é a carícia do amor de Deus ao mundo.");
+        listAuthor.add("Tales de Mileto");
+        listCitation.add("Toma para ti o conselho que dá aos outros.");
     }
 
-    public static CitationProvider getInstance() {
-        if (citation == null) {
-            citation = new CitationProvider();
-            citation.addCitation("Confucio", "Tudo tem alguma beleza, mas nem todos são capazes de ver");
-            citation.addCitation("Ronald Reagan", "Um hippie é alguém que se parece ao Tarzan, anda como a Jane e tem o cheiro da Cheetah");
-            citation.addCitation("Albert Einstein", "Nunca penso no futuro - ele já chegará");
-            citation.addCitation("Robert Kennedy", "Sempre perdoe aos seus inimigos, mas nunca se esqueça o nome deles.");
-            citation.addCitation("Vidal Sassoon", "Ínicio lugar onde o êxito chega antes do trabalho é no dicionário.");
-            citation.addCitation("Oscar Wilde", "As mulheres precisam ser amadas, não compreendidas");
-            citation.addCitation("Helen Sáller", "Se você vive olhando para o sol, não verá as sombras.");
-            citation.addCitation("Garth Brooks", "Ser feliz não é conseguir o que deseja, é desejar o que não possui. ");
-            citation.addCitation("Mike Ditka", "O êxito não é© permanente, e fracassar não é mortal. ");
-            citation.addCitation("Socrates", "Com certeza, se casem. Se casar com uma boa mulher, será um homem feliz. Se casar com uma mÃƒÂ¡, se convertirá em filosofo.");
-            citation.addCitation("Albert Einstein", "NÃƒÂ£o procure ser um homem com ÃƒÂªxito, e sim um homem com valores. ");
-            citation.addCitation("Nelson Mandela", "NÃƒÂ£o sou um santo. A menos que para vocÃƒÂª um santo seja um pecador que simplesmente segue se esforÃƒÂ§ando.");
-            citation.addCitation("Thomas Edison", "20 citaÃƒÂ§ÃƒÂµes famosas que todo empreendedor deveria conhecer");
-            citation.addCitation("Bill Gates", "20 citaÃƒÂ§ÃƒÂµes famosas que todo empreendedor deveria conhecer - InfoMoney");
-            citation.addCitation("Warren Buffett", "20 citaÃƒÂ§ÃƒÂµes famosas que todo empreendedor deveria conhecer - InfoMoney");
-        }
+    public void addCitation(String author, String citation){
+        listAuthor.add(author);
+        listCitation.add(citation);
 
-        return citation;
     }
 
-    public Citation getCitation() {
+    public String getCitation(){
+        String author;
+        String citation;
 
-        int nrAleatorio = 0;
-        Random ramdom = new Random();
+        Random r = new Random();
+        int index = (r.nextInt(listAuthor.size()));
 
-        for (int i = 0; i < listCitation.size(); i++) {
+        author = listAuthor.get(index);
+        citation = listCitation.get(index);
 
-            nrAleatorio = 0 + ramdom.nextInt(listCitation.size());
-
-
-        }
-        return listCitation.get(nrAleatorio);
+        return author + " - " + citation;
 
     }
 
 }
-
 
